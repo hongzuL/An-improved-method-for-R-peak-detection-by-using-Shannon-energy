@@ -4,7 +4,7 @@ function [out_sig,peak_locs_final] = ISEE(signal,fs)
     % input: original signal, sample frequency
     % output: filtered signal, detected peak locations
     % bandpass filter
-    BP_filter = iir_bandpass_filter(fs,6,18,'cheby1');
+    BP_filter = chebyshevI_bandpass(4,fs,6,18,'cheby1');
     % forward filtering
     f_signal_forward = filter(BP_filter,signal);
     % backward filtering
